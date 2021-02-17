@@ -65,7 +65,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
-    grid-gap: 20px;
+    grid-gap: 20px 5px;
 }
 .bgCircle{
     border-radius: 20%;
@@ -80,9 +80,12 @@ body {
 .circle{
     border-radius: 50%;
     border: 1px solid goldenrod;
+    width: 100px;
+    height: 100px;
 }
 .ctr{
     text-align: center;
+    margin-top: 5px;
 }
 #ftr{
     background-color: goldenrod;
@@ -101,11 +104,12 @@ body {
     height: 180px;
     border-radius: 50%;
     border: 1px solid goldenrod;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .catchBtn{
     padding: 10px 18px;
     border-radius: 20%;
+    margin-top: 10px;
     margin-bottom: 20px;
     background: goldenrod;
     font-size: 15px;
@@ -145,6 +149,7 @@ body {
 .gridDetail li{
     border: 1px solid goldenrod;
     padding: 2px;
+    border-radius: 10%;
 }
 
 .modal {
@@ -202,6 +207,20 @@ body {
     .boxWhite h2{
         text-align: left;
     }
+    .container{
+        grid-gap: 20px;
+    }
+    /* .bgCircle{
+        width: 110px;
+        height: 150px;
+    } */
+    .circle{
+        width: 130px;
+        height: 130px;
+    }
+    .ctr{
+        font-size: 15px;
+    }
     #ftr{
         font-size: 18px;
         padding: 10px;
@@ -231,6 +250,9 @@ body {
     }
     .gridDetail{
         grid-template-columns: 1fr 1fr 1fr;
+    }
+    .gridDetail li{
+        padding: 10px;
     }
     .dataDetail p{
         text-align: left;
@@ -263,6 +285,13 @@ body {
 	#hdr{
         height: 400px;
     }
+    .circle{
+        width: 150px;
+        height: 150px;
+    }
+    .ctr{
+        font-size: 17px;
+    }
     .container{
         margin-top: 20px;
         display: grid;
@@ -276,6 +305,9 @@ body {
     }
     .gridDetail{
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    .gridDetail li{
+        padding: 12px;
     }
     .dataDetail p{
         text-align: left;

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Route, NavLink, HashRouter, Switch } from "react-router-dom";
 import Detail from "./detail.js";
 import ReactDOM from "react-dom";
 
@@ -34,7 +33,7 @@ class Home extends Component {
         .catch(error => console.log('parsing failed', error));
 
         // fetch database get owned number
-        fetch("http://localhost:3000/api/v1/pokemon", {method: 'get'})
+        fetch("http://localhost:3000/api/v1/pokemon", {method: 'GET'})
         .then(res => {
             return res.json();  
         })
@@ -51,37 +50,22 @@ class Home extends Component {
         }))
         .catch(error => console.log('parsing failed', error));
     }
-    // callbackFunction = (childData, id) => {
-    //     this.state.items.map((item, idx) => {
-    //         if (idx == id){
-    //             item = childData;
-    //         }
-    //     });
-    // }
-    getDetail(urlNum) {
-        function handleClick(e) {
-            e.preventDefault();
-            
-        }
-        // ReactDOM.render(<Detail urlNum={urlNum} state={this.state} parentCallback={this.callbackFunction}/>, document.getElementById("root"));
-        ReactDOM.render(<Detail/>, document.getElementById("root"));
-        console.log(this.state);
-    }
     render() {
         const items  = this.state.items;
         const pokemonCount = this.state.pokemonCount;
         console.log(pokemonCount);
-        // console.log(items);
         return (
             <div className="boxWhite">
                 <h2>POKEMON</h2>
                 <div className="container">
                     {
                         items.length > 0 ? items.map(item => {
-                            const {name, url, ownNum} = item;
+                            const {url} = item;
+
                             const urlSplit = url.split("/");
                             const urlNum = urlSplit[urlSplit.length - 2];
                             const urlImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${urlNum}.png`;
+                            const pokeName = item.name.toUpperCase();
                             const ownNumCount = pokemonCount.filter(p => urlNum == p.urlNum);
                             const pokeNum = ownNumCount.length > 0 ? ownNumCount[0].ownNum : 0;
                                  
@@ -89,10 +73,10 @@ class Home extends Component {
                                 <button key={url} className="bgCircle" onClick={() => this.props.history.push(`detail/${urlNum}`)}>
                                     <center><img src={urlImg} className="circle"/></center>
                                     <div className="ctr">
-                                        {name}
+                                        {pokeName}
                                     </div>
                                     <div className="ctr">
-                                        {pokeNum}
+                                        Owned : {pokeNum}
                                     </div>
                                 </button>
                             );

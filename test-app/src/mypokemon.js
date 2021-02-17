@@ -1,8 +1,4 @@
 import React, { Component } from "react";
-import { Route, NavLink, HashRouter, Switch } from "react-router-dom";
-import Detail from "./detail.js";
-import ReactDOM from "react-dom";
-
 
 class Mypokemon extends Component {
     constructor(props) {
@@ -42,18 +38,34 @@ class Mypokemon extends Component {
                 <div className="container">
                     {
                         pokemonCount.length > 0 ? pokemonCount.map(item => {
-                            const {nickname, name, urlnum} = item;
+                            const {nickname, urlnum} = item;
+                            const pokeName = item.name.toUpperCase();
                             const urlImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${urlnum}.png`;
                                  
                             return (
                                 <div key={nickname} className="bgCircle">
                                     <center><img src={urlImg} className="circle"/></center>
                                     <div className="ctr">
-                                        {nickname}
+                                        {pokeName}
                                     </div>
                                     <div className="ctr">
-                                        {name}
+                                        Nickname : {nickname}
                                     </div>
+                                    <center><button className="catchBtn" onClick={() => {
+                                        fetch(`http://localhost:3000/api/v1/mypokemon/${nickname}`, {method: 'DELETE'})
+                                        .then(async response => {
+                                            const data = await response.json();
+                                            console.log(data);
+                                            if (!response.ok) {
+                                                const error = (data && data.message) || response.status;
+                                                return Promise.reject(error);
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.error('There was an error!', error);
+                                        });
+                                        setTimeout("location.reload(true);",500);
+                                    }}>X</button></center>
                                 </div>
                             );
                         }) : null

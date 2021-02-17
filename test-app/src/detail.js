@@ -69,25 +69,30 @@ class Detail extends Component {
                                     className="catchBtn"
                                     onClick={() => 
                                     {
-                                        this.setState({ownNum: this.state.ownNum + 1});
+                                        // this.setState({ownNum: this.state.ownNum + 1});
                                         const requestOptions = {
                                             method: 'POST',
                                             headers: {'Content-Type': 'application/json'},
                                             body: JSON.stringify({ nickname: document.getElementById("nickname").value, name: namePoke, urlnum: this.props.match.params.urlNum})
                                         };
                                         console.log(requestOptions.body);
-                                        fetch('http://localhost:3000/api/v1/mypokemon/', requestOptions)
-                                        .then(async response => {
-                                            const data = await response.json();
-                                            console.log(data);
-                                            if (!response.ok) {
-                                                const error = (data && data.message) || response.status;
-                                                return Promise.reject(error);
-                                            }
-                                        })
-                                        .catch(error => {
-                                            console.error('There was an error!', error);
-                                        });
+                                        if(Math.random() >= 0.5){
+                                            fetch('http://localhost:3000/api/v1/mypokemon/', requestOptions)
+                                            .then(async response => {
+                                                const data = await response.json();
+                                                console.log(data);
+                                                if (!response.ok) {
+                                                    const error = (data && data.message) || response.status;
+                                                    return Promise.reject(error);
+                                                }
+                                            })
+                                            .catch(error => {
+                                                console.error('There was an error!', error);
+                                            });
+                                        }
+                                        else{
+                                            alert("Sorry, catch failed..");
+                                        }
                                         close();
                                     }}
                                     >

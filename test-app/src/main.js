@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch, NavLink, HashRouter, Link, useParams, BrowserRouter } from "react-router-dom";
+import { Route, Switch, NavLink, BrowserRouter } from "react-router-dom";
 import Home from "./home";
 import Mypokemon from "./mypokemon";
 import Detail from "./detail";
