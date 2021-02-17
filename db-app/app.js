@@ -20,4 +20,4 @@ app.disable('x-powered-by');
 app.use(cors());
 app.use('/api/v1', mypokemonRoute);
 
-app.listen(3000, console.log('Listening PORT:3000'));
+app.listen((process.env.PORT || 3000), console.log('Listening PORT:3000'));
