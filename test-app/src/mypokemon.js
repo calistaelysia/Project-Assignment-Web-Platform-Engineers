@@ -44,7 +44,8 @@ class Mypokemon extends Component {
             console.error('There was an error!', error);
         });
 
-        // pokemonCount.filter(pkmn => pkmn.nickname !== nicknameDeleted);
+        // const newPokemonCount = pokemonCount.filter(pkmn => pkmn.nickname !== nicknameDeleted);
+        // this.setState(this.state.pokemonCount = newPokemonCount);
         setTimeout("location.reload(true);",500);
     }
     
