@@ -7,10 +7,11 @@ class Mypokemon extends Component {
             pokemonCount: [],
             isLoaded: false,
         };
+        this.deletePokemon = this.deletePokemon.bind(this);
     }
     componentDidMount() {
         this.setState({...this.state, isLoaded: true});
-        // fetch database get mypokemon
+        
         fetch("http://localhost:3000/api/v1/mypokemon", {method: 'get'})
         .then(res => {
             return res.json();  
@@ -27,6 +28,24 @@ class Mypokemon extends Component {
             isLoaded: false,
         }))
         .catch(error => console.log('parsing failed', error));
+    }
+
+    deletePokemon(nicknameDeleted){
+        fetch(`http://localhost:3000/api/v1/mypokemon/${nicknameDeleted}`, {method: 'DELETE'})
+        .then(async response => {
+            const data = await response.json();
+            console.log(data);
+            if (!response.ok) {
+                const error = (data && data.message) || response.status;
+                return Promise.reject(error);
+            }
+        })
+        .catch(error => {
+            console.error('There was an error!', error);
+        });
+
+        // pokemonCount.filter(pkmn => pkmn.nickname !== nicknameDeleted);
+        setTimeout("location.reload(true);",500);
     }
     
     render() {
@@ -51,21 +70,7 @@ class Mypokemon extends Component {
                                     <div className="ctr">
                                         Nickname : {nickname}
                                     </div>
-                                    <center><button className="catchBtn" onClick={() => {
-                                        fetch(`http://localhost:3000/api/v1/mypokemon/${nickname}`, {method: 'DELETE'})
-                                        .then(async response => {
-                                            const data = await response.json();
-                                            console.log(data);
-                                            if (!response.ok) {
-                                                const error = (data && data.message) || response.status;
-                                                return Promise.reject(error);
-                                            }
-                                        })
-                                        .catch(error => {
-                                            console.error('There was an error!', error);
-                                        });
-                                        setTimeout("location.reload(true);",500);
-                                    }}>X</button></center>
+                                    <center><button className="catchBtn" onClick={() => this.deletePokemon(nickname)}>X</button></center>
                                 </div>
                             );
                         }) : null

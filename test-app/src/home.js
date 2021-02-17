@@ -14,7 +14,7 @@ class Home extends Component {
     }
     componentDidMount() {
         this.setState({...this.state, isLoaded: true});
-        //fetch pokemon API
+        
         fetch("https://pokeapi.co/api/v2/pokemon")
         .then(res => {
             return res.json();
@@ -32,7 +32,6 @@ class Home extends Component {
         }))
         .catch(error => console.log('parsing failed', error));
 
-        // fetch database get owned number
         fetch("http://localhost:3000/api/v1/pokemon", {method: 'GET'})
         .then(res => {
             return res.json();  

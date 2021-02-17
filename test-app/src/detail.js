@@ -69,7 +69,6 @@ class Detail extends Component {
                                     className="catchBtn"
                                     onClick={() => 
                                     {
-                                        // this.setState({ownNum: this.state.ownNum + 1});
                                         const requestOptions = {
                                             method: 'POST',
                                             headers: {'Content-Type': 'application/json'},
