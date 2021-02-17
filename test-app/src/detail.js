@@ -61,6 +61,7 @@ class Detail extends Component {
                                 </button>
                                 <div className="header"> Catch a Pokemon </div>
                                 <div className="content">
+                                    <div>(Success probability is 50%)</div>
                                     <div>Give it a nickname :</div>
                                     <div><input type="text" name="nickname" id="nickname"/></div>
                                 </div>
