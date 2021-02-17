@@ -32,7 +32,7 @@ class Home extends Component {
         }))
         .catch(error => console.log('parsing failed', error));
 
-        fetch("http://localhost:3000/api/v1/pokemon", {method: 'GET'})
+        fetch("https://pokemondb-app.herokuapp.com/api/v1/pokemon", {method: 'GET'})
         .then(res => {
             return res.json();  
         })

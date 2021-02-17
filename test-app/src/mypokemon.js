@@ -12,7 +12,7 @@ class Mypokemon extends Component {
     componentDidMount() {
         this.setState({...this.state, isLoaded: true});
         
-        fetch("http://localhost:3000/api/v1/mypokemon", {method: 'get'})
+        fetch("https://pokemondb-app.herokuapp.com/api/v1/mypokemon", {method: 'get'})
         .then(res => {
             return res.json();  
         })
@@ -31,7 +31,7 @@ class Mypokemon extends Component {
     }
 
     deletePokemon(nicknameDeleted){
-        fetch(`http://localhost:3000/api/v1/mypokemon/${nicknameDeleted}`, {method: 'DELETE'})
+        fetch(`https://pokemondb-app.herokuapp.com/api/v1/mypokemon/${nicknameDeleted}`, {method: 'DELETE'})
         .then(async response => {
             const data = await response.json();
             console.log(data);

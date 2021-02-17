@@ -76,7 +76,7 @@ class Detail extends Component {
                                         };
                                         console.log(requestOptions.body);
                                         if(Math.random() >= 0.5){
-                                            fetch('http://localhost:3000/api/v1/mypokemon/', requestOptions)
+                                            fetch('https://pokemondb-app.herokuapp.com/api/v1/mypokemon/', requestOptions)
                                             .then(async response => {
                                                 const data = await response.json();
                                                 console.log(data);
