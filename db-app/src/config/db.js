@@ -14,6 +14,7 @@ let dbConnConfig = {
     dbConnConfig.host = dbConnConfigUrl.host;
     dbConnConfig.user = dbConnConfigUrl.username;
     dbConnConfig.password = dbConnConfigUrl.password;
+    dbConnConfig.database = dbConnConfigUrl.pathname.substring(1);
   
     delete dbConnConfig.port;
   }
