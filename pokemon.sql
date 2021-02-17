@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2021 at 11:07 AM
+-- Generation Time: Feb 17, 2021 at 11:55 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -45,7 +45,10 @@ INSERT INTO `mypokemon` (`id`, `nickname`, `name`, `urlnum`, `created_at`, `upda
 (23, 'Squirtle1', 'squirtle', '7', '2021-02-16 23:16:32', NULL),
 (28, 'chamander1', 'charmander', '4', '2021-02-17 16:26:18', NULL),
 (32, 'charmander2', 'charmander', '4', '2021-02-17 16:59:19', NULL),
-(33, 'squirtle2', 'squirtle', '7', '2021-02-17 16:59:30', NULL);
+(33, 'squirtle2', 'squirtle', '7', '2021-02-17 16:59:30', NULL),
+(35, 'chamander3', 'charmander', '4', '2021-02-17 17:23:46', NULL),
+(36, 'weedle1', 'weedle', '13', '2021-02-17 17:24:53', NULL),
+(37, 'weedle2', 'weedle', '13', '2021-02-17 17:50:00', NULL);
 
 --
 -- Indexes for dumped tables
@@ -66,7 +69,7 @@ ALTER TABLE `mypokemon`
 -- AUTO_INCREMENT for table `mypokemon`
 --
 ALTER TABLE `mypokemon`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
